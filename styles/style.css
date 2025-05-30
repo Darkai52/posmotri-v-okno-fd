@@ -16,6 +16,11 @@ html {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   background-color: #1b1919;
+   display: flex;
+  justify-content: center; 
+  align-items: flex-start;     
+  min-height: 100vh;       
+  box-sizing: border-box;
 }
 
 h1,
@@ -49,14 +54,6 @@ ol {
   background-color: #D9D9D9;
 }
 
-.preloader {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #545050;
-}
  
 .preloader-chasing-squares {
   width: 50px;
@@ -107,17 +104,9 @@ ol {
   }
 }
  
-.page {
-  display: flex;
-  justify-content: center; 
-  align-items: center;     
-  min-height: 100vh;       
-  box-sizing: border-box;
-}
- 
 .content {
   width: 1140px;
-  margin-top: 155px;
+  margin-top: 124px;
   margin-right: 33px;
   margin-bottom: 133px;
   margin-left: 33px;
@@ -126,28 +115,28 @@ ol {
   grid-template-areas: "result details";
   place-items: end;       
   justify-content: center;
+
 }
  
 .result {
-  grid-area: "result";
-  margin-bottom: 115px;
+  grid-area: result;
 }
  
 .content__details {
-  grid-area: "details";
+  grid-area: details;
   display: flex;
   flex-direction: column; 
   width: 100%;
   height: 100%;
   line-height: 0.94;
-  margin-bottom: 56px;
-  gap: 18px;
+  gap: 20px;
 }
  
   .search-form {
     display: flex;          
     justify-content: flex-start; 
     gap: 40px; 
+    margin-bottom: 3px;
   }
  
   .search-form__row {
@@ -162,7 +151,8 @@ ol {
  
 .content__list-container {
   position: relative;
-  height: 300px; 
+  max-height: 300px; 
+  max-width: 399px;
   overflow-y: scroll; 
   padding-right: 1px;
 }
@@ -171,7 +161,6 @@ ol {
   width: 711px;
 height: 386px;
 position: relative;
-overflow: hidden
 }
  
 .result__video {
@@ -184,9 +173,9 @@ overflow: hidden
   display: flex;
   flex-direction: column;
   list-style: none;
-  margin-bottom: 30px;
-   padding: 0 3px;
-  line-height: 29px;
+  margin-bottom: 32px;
+  padding: 0 1px;
+  line-height: 28px;
 }
  
 .content__video-card {
@@ -211,31 +200,31 @@ display: block;
 }
  
 .search-form__fieldset-title {
-  font-family: "Fira Sans Condensed";
+  font-family: "Fira Sans Condensed", Arial, sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 100%;
-  letter-spacing: 0%;
   color: white;
-  padding-bottom: 2px;
+  padding-bottom: 3px;
   line-height: 1.2;
   border-bottom: 1px solid white ;  
 }
  
 .title {
   position: relative;
-  font-family: "Oswald";
+  font-family: "Oswald", "Arial Narrow", sans-serif;
 font-size: 75px;
-line-height: 1;
-letter-spacing: 0%;
+line-height: 0.98;
 text-transform: uppercase;
+ 
 }
  
 .content__accent {
   color: #545050;
    display: inline-block;
    position: relative;
-   top: 7px;
+   top: 12px;
+   margin-bottom: 5px;
 }
  
 .content__card-link {
@@ -245,6 +234,14 @@ text-transform: uppercase;
   position: relative;
    cursor: pointer;
   }
+
+  .content__card-link_current {
+  background-color: #545050; 
+}
+
+.content__card-link_current .content__video-card {
+  background-color: #545050;
+}
 
   .content__card-link:hover .content__video-card-title,
 .content__card-link:hover .content__video-card-description {
@@ -256,12 +253,12 @@ text-transform: uppercase;
 }
 
 .content__card-link:focus-visible {
-  outline: 1px solid #FFF;
+  outline: 1px solid #FFF;  
   outline-offset: 2px;
 }
 
 .content__card-link:active .content__video-card {
-  background-color: rgba(84, 80, 80, 0.5);
+  background-color: #545050;
 }
  
 .content__video-card-title {
@@ -269,7 +266,6 @@ text-transform: uppercase;
   font-weight: 700;
   font-size: 30px;
   line-height: 100%;
-  letter-spacing: 0%;
   text-transform: uppercase;
   white-space: nowrap;       
   overflow: hidden;          
@@ -277,14 +273,9 @@ text-transform: uppercase;
   max-width: 190px;         
 }
  
-.content__video-card-description-container {
-  flex-grow: 1;
-  min-width: 0;
-}
- 
 .search-form__fieldset {
    border: none;
-   margin-top: 20px;
+   margin-top: 18px;
     width: auto;
 }
  
@@ -318,7 +309,9 @@ search-form__label:has(:focus-visible) {
 
 .search-form__textfield::placeholder {
   color: rgba(255, 255, 255, 0.7);
-  opacity: 1;
+  font-family: "Fira Sans Condensed";
+  width: 100%;        
+  min-width: 211px; 
 }
 
 .search-form__textfield:focus::placeholder {
@@ -333,7 +326,7 @@ search-form__label:has(:focus-visible) {
  position: relative;
   display: inline-block;
   width: 19px;
-  height: 18px;
+  height: 19px;
   border: 1px solid #fff;
   vertical-align: middle;
   margin-right: 5px;
@@ -346,14 +339,7 @@ display: flex;
   width: fit-content;    
   cursor: pointer; 
 }
- 
-.search-form__textfield::placeholder {
-  color: rgba(255, 255, 255, 0.7);
-  font-family: "Fira Sans Condensed";
-  width: 100%;        
-  min-width: 211px; 
-}
- 
+
 .button.search-form__submit-button {
   color: white;
   font-family: "Fira Sans Condensed";
@@ -363,11 +349,16 @@ font-size: 18px;
 }
  
 .search-form__submit-button {
+  font-family: "Fira Sans Condensed", Arial, sans-serif;
   background: transparent;
   border: 1px solid white;
   height: 33px;      
   align-self: flex-end;
    cursor: pointer;
+}
+
+.button {
+  font-family: "Fira Sans Condensed", Arial, sans-serif; 
 }
 
 .button:hover {
@@ -402,6 +393,7 @@ margin-right: 2px;
 }
  
 .more-button {
+    font-family: "Fira Sans Condensed", Arial, sans-serif;
   background: transparent;
   border: 1px solid white;
   height: 34px;      
@@ -419,24 +411,8 @@ margin-right: 2px;
   white-space: nowrap;
 }
 
-.search-form__pseudo-checkbox::after {
-  content: "";
-  position: absolute;
-  top: 1px;
-  left: 1px;
-  width: 15px; 
-  height: 15px;
-  background-color: #fff;
-  opacity: 0;
-}
-
 search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
   opacity: 1;
-}
-
-.search-form__label:has(:focus-visible) {
-  outline: 1px solid #fff;
-  outline-offset: 2px;
 }
 
 .search-form__label:hover .search-form__label-text {
@@ -470,6 +446,3 @@ search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
   outline-offset: 2px;
 }
 
-.search-form__label:hover .search-form__label-text {
-  text-decoration: underline;
-}
